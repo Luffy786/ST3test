@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<title></title>
+<style>
+    input {
+        font-style: Calibri;
+    }
+    
+    body {
+        padding: 15px;
+        margin-left: 400px;
+    }
+    
+    button {
+        background-color: orange;
+    }
+    
+    form {
+        background-color: darkcyan;
+        border: solid;
+        padding-left: 15px;
+        width: 30%;
+        height: 60%;
+    }
+    
+    hr {
+        color: black;
+    }
+</style>
+
+</head>
+
+<body>
+    <form>
+
+
+
+
+
+        <h3>Details Form</h3>
+        <hr>
+        <span>Name</span>
+        <input type=text id='t1' required><br />
+        <span>Contact</span>
+        <input type=text id='t2' required><br />
+        <span>Email</span>
+        <input type=text id='t3' required>
+        <br>
+        <input type=button value='submit' onClick='add_element()' ;>
+        <div id=disp></div>
+
+
+
+
+
+    </form>
+
+    <script type="text/javascript">
+        var data = new Array();
+
+        function add_element() {
+            data.push(document.getElementById('t1').value);
+            document.getElementById('t1').value = '';
+            disp();
+        }
+
+        function remove_element(index_no) {
+            var t1 = data.splice(index_no, 1);
+            disp();
+        }
+
+        function disp() {
+            var str = '';
+            str = 'total number of elements in data array : ' + data.length + '<br>';
+            for (i = 0; i < data.length; i++) {
+                str += i + ':' + data[i] + " <a href=# onClick='remove_element(" + data.indexOf(data[i]) + ")'> Remove</a> " + "<br >";
+            }
+
+            document.getElementById('disp').innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>
